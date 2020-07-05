@@ -1,4 +1,4 @@
-﻿namespace Xadrez.Tabuleiro
+﻿namespace Xadrez
 {
     class Peca
     {
@@ -12,7 +12,7 @@
             Posicao = posicao;
             Tab = tab;
             Cor = Cor;
-            QtdMovimentos = 0
+            QtdMovimentos = 0;
         }
     }
 }

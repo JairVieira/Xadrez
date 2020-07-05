@@ -10,6 +10,11 @@ namespace Xadrez
     {
         static void Main(string[] args)
         {
+            var tab = new Tabuleiro(8, 8);            
+
+            Tela.ImprimirTabuleiro(tab);
+
+            Console.ReadLine();
         }
     }
 }
