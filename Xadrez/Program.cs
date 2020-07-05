@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xadrez;
 
 namespace Xadrez
 {
@@ -10,8 +7,10 @@ namespace Xadrez
     {
         static void Main(string[] args)
         {
-            var tab = new Tabuleiro(8, 8);            
-
+            var tab = new Tabuleiro(8, 8);
+            tab.InserirPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
+            tab.InserirPeca(new Torre(tab, Cor.Preta), new Posicao(1, 3));
+            tab.InserirPeca(new Rei(tab,Cor.Preta), new Posicao(2, 4));
             Tela.ImprimirTabuleiro(tab);
 
             Console.ReadLine();

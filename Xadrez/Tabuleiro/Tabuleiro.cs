@@ -14,10 +14,16 @@ namespace Xadrez
             Colunas = colunas;
             Pecas = new Peca[linhas, colunas];
         }
-        
+
         public Peca ObterPeca(int linha, int coluna)
         {
             return Pecas[linha, coluna];
+        }
+
+        public void InserirPeca(Peca p, Posicao pos)
+        {
+            Pecas[pos.Linha, pos.Coluna] = p;
+            p.Posicao = pos;
         }
     }
 }
