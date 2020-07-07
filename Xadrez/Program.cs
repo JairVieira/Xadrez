@@ -13,7 +13,8 @@ namespace Xadrez
                 try
                 {
                     Console.Clear();
-                    Tela.ImprimirTabuleiro(partida.Tab);
+                    Tela.ImprimirPartida(partida);
+                    //Tela.ImprimirTabuleiro(partida.Tab);
 
                     Console.WriteLine();
                     Console.WriteLine($"Turno: {partida.Turno}");
