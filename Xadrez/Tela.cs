@@ -11,7 +11,13 @@ namespace Xadrez
             ImprimirTabuleiro(partida.Tab);
             Console.WriteLine();
             ImprimirPecasCapturadas(partida);
+            Console.WriteLine();
+            Console.WriteLine($"Turno: {partida.Turno}");
+            Console.WriteLine($"Aguardadno jogada: {partida.JogadorAtual}");
 
+            if(partida.Xeque)
+                Console.WriteLine("XEQUE!");
+            Console.WriteLine();
         }
 
         public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)
