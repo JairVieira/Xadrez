@@ -1,4 +1,4 @@
-﻿namespace Xadrez
+﻿ namespace Xadrez
 {
     class Bispo : Peca
     {
@@ -19,45 +19,45 @@
 
             var pos = new Posicao(0, 0);
 
-            //acima
-            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
-                mat[pos.Linha, pos.Coluna] = true;
-
-            // ne
-            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
-                mat[pos.Linha, pos.Coluna] = true;
-
-            // direita
-            pos.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
-                mat[pos.Linha, pos.Coluna] = true;
-
-            // se
-            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
-                mat[pos.Linha, pos.Coluna] = true;
-
-            // abaixo
-            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
-                mat[pos.Linha, pos.Coluna] = true;
-
-            // so
-            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna -1 );
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
-                mat[pos.Linha, pos.Coluna] = true;
-
-            // esquerda
-            pos.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
-                mat[pos.Linha, pos.Coluna] = true;
-
-            // esquerda
+            //NO
             pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
+            {
                 mat[pos.Linha, pos.Coluna] = true;
+                if (Tab.ObterPeca(pos) != null && Tab.ObterPeca(pos).Cor != Cor)
+                    break;
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna - 1);
+            }
+
+            //NE
+            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
+            {
+                mat[pos.Linha, pos.Coluna] = true;
+                if (Tab.ObterPeca(pos) != null && Tab.ObterPeca(pos).Cor != Cor)
+                    break;
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna + 1);
+            }
+
+            //SE
+            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
+            {
+                mat[pos.Linha, pos.Coluna] = true;
+                if (Tab.ObterPeca(pos) != null && Tab.ObterPeca(pos).Cor != Cor)
+                    break;
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna + 1);
+            }
+
+            //SO
+            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
+            {
+                mat[pos.Linha, pos.Coluna] = true;
+                if (Tab.ObterPeca(pos) != null && Tab.ObterPeca(pos).Cor != Cor)
+                    break;
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna - 1);
+            }            
 
             return mat;
         }
